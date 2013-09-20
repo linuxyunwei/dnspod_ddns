@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import sys
 import urllib
 import urllib2
 import time
@@ -9,23 +8,15 @@ current_ip = None
 
 # format:  domains = {'sub_domain': record_id}
 domains = {
-    'ns': 35192771,
-    'alywb': 41016542,
-    'company': 41016633,
-    'office': 35191293,
-    'verywx': 27714667,
-    'verywxapi': 41017053,
-    'weixin': 41017262,
-    'weixin-adm': 41017138,
-    'weixin-trans': 41017190,
-    'yx': 41017337
+    'test': 35192771,
+    'www': 41016542
 }
 
 
 def ddns(sub_domain, record_id, ip):
     para = {
-        'login_email': 'daixijun1990@gmail.com',  # 登陆dnspod的账号
-        'login_password': 'xinhua3206',  # 密码
+        'login_email': 'you_email@you_email.com',  # 登陆dnspod的账号
+        'login_password': 'password',  # 密码
         'domain_id': 2428050,  # 域名ID，使用curl -X POST https://dnsapi.cn/Domain.List -d 'login_email=api@dnspod.com&login_password=password&format=json' 获取
         'record_line': '电信',  # 线路
         'sub_domain': sub_domain,  # 子域名
@@ -56,5 +47,5 @@ if __name__ == '__main__':
                    print ddns(k, v, ip)
         except Exception, e:
             pass
-        time.sleep(30)
+        time.sleep(300)
 
